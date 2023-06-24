@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:skill_shala/screens/home_screen.dart';
+import 'package:skill_shala/screens/skills/courses.dart';
 import 'package:skill_shala/screens/splashscreen.dart';
 
 void main() {
@@ -17,7 +19,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      initialRoute: 'splash',
+      routes: {
+        'splash': (context) => SplashScreen(),
+        'home_screen': (context) => HomeScreen(),
+        'courses': (context) => Courses(),
+      },
     );
   }
 }
