@@ -4,21 +4,21 @@ const TextStyle headingText = TextStyle(
   fontSize: 24,
   fontFamily: 'Nunito',
   fontWeight: FontWeight.bold,
-  color: Color.fromRGBO(22, 75, 48, 1),
+  color: Color.fromRGBO(24, 15, 69, 1),
 );
 
 const TextStyle quesText = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.w600,
   fontFamily: 'Nunito',
-  color: Color.fromRGBO(22, 75, 48, 1),
+  color: Color.fromRGBO(24, 15, 69, 1),
 );
 
 const TextStyle ansText = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.w600,
   fontFamily: 'Nunito',
-  color: Color.fromRGBO(22, 75, 48, 1),
+  color: Color.fromRGBO(24, 15, 69, 1),
 );
 
 const TextStyle buttonStyle = TextStyle(
@@ -29,7 +29,13 @@ const TextStyle buttonStyle = TextStyle(
 );
 
 const TextStyle drawerText = TextStyle(
-    color: Color.fromARGB(255, 35, 34, 34),
+    color: Color.fromRGBO(45, 32, 112, 1),
     fontSize: 17,
     fontFamily: 'Nunito',
     fontWeight: FontWeight.w600);
+
+const TextStyle featuresText = TextStyle(
+    color: Color.fromRGBO(45, 32, 112, 1),
+    fontSize: 17,
+    fontFamily: 'Nunito',
+    fontWeight: FontWeight.bold);

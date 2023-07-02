@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
       centered: true,
       splash: 'assets/images/logo.png',
       splashIconSize: 400,
-      nextScreen: HomeScreen(),
+      nextScreen: const HomeScreen(),
       splashTransition: SplashTransition.sizeTransition,
       pageTransitionType: PageTransitionType.bottomToTop,
     );

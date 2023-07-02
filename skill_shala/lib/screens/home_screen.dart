@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skill_shala/helper/commons.dart';
+import 'package:skill_shala/helper/constants.dart';
 import 'package:skill_shala/screens/size_configs.dart';
 import 'package:unicons/unicons.dart';
 
@@ -15,12 +16,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 250, 250, 250),
+        backgroundColor: const Color.fromARGB(255, 250, 250, 250),
         centerTitle: true,
         title: Image.asset(
-          "assets/images/ss_name.png",
+          "assets/images/logo.png",
           width: getProportionateScreenWidth(130),
           height: getProportionateScreenHeight(60),
         ),
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return IconButton(
               icon: const Icon(
                 UniconsLine.paragraph,
-                color: Color.fromRGBO(22, 75, 48, 1),
+                color: Color.fromRGBO(24, 15, 69, 1),
                 size: 24,
               ),
               onPressed: () {
@@ -44,27 +45,12 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, 'vision');
-              },
-              child: const Padding(
-                padding: EdgeInsets.all(25.0),
-                child: Image(
-                  image: AssetImage(
-                    "assets/images/logo.png",
-                  ),
-                  height: 150,
-                ),
-              ),
+            SizedBox(
+              height: getProportionateScreenHeight(200),
             ),
             //home
             ListTile(
-                leading: const Icon(
-                  UniconsLine.home_alt,
-                  color: Color.fromARGB(255, 58, 57, 57),
-                  size: 30,
-                ),
+                leading: homelogo,
                 title: const Text(
                   'Home',
                   style: drawerText,
@@ -72,13 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   Navigator.pushNamed(context, 'home_screen');
                 }),
-            //Leraning Center
+            //Learning Center
             ListTile(
-                leading: const Icon(
-                  UniconsLine.file_contract,
-                  color: Color.fromARGB(255, 58, 57, 57),
-                  size: 30,
-                ),
+                leading: learnlogo,
                 title: const Text(
                   'Learn',
                   style: drawerText,
@@ -86,19 +68,35 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   Navigator.pushNamed(context, 'courses');
                 }),
-            //About us
+            //Book Counselling
             ListTile(
-                leading: const Icon(
-                  UniconsLine.question_circle,
-                  color: Color.fromARGB(255, 58, 57, 57),
-                  size: 30,
-                ),
+                leading: counsellogo,
                 title: const Text(
-                  'About Us',
+                  'Book Counselling',
                   style: drawerText,
                 ),
                 onTap: () {
-                  Navigator.pushNamed(context, 'about_us');
+                  Navigator.pushNamed(context, 'counselling');
+                }),
+            // Shopping Cart
+            ListTile(
+                leading: cartLogo,
+                title: const Text(
+                  'Explore Products',
+                  style: drawerText,
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, 'portal');
+                }),
+            //FAQ
+            ListTile(
+                leading: faqlogo,
+                title: const Text(
+                  'FAQ',
+                  style: drawerText,
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, 'FAQ');
                 }),
           ],
         ),
@@ -107,23 +105,26 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             //Features
-            Text(
+            const Text(
               "Welcome to Skill शाळा",
               style: headingText,
             ),
-
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: handsTogether,
+            ),
             Container(
               margin: EdgeInsets.symmetric(
                   horizontal: getProportionateScreenWidth(30),
                   vertical: getProportionateScreenHeight(10)),
-              child: Text(
+              child: const Text(
                 "Skill शाळा is a platform which will help women to get access to various courses which would help them gain skills and be financially independent. These courses would help them gain practical knowledge through video tutorials and offline workshops held in collaboration with NGOs and the government.",
                 textAlign: TextAlign.justify,
                 style: ansText,
               ),
             ),
 
-            GestureDetector(
+            /* GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, 'courses');
               },
@@ -134,15 +135,106 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: getProportionateScreenHeight(60),
                 width: getProportionateScreenWidth(200),
                 decoration: BoxDecoration(
-                    color: Color.fromRGBO(28, 155, 90, 1),
+                    color: const Color.fromRGBO(45, 32, 112, 1),
                     borderRadius: BorderRadius.circular(20)),
-                child: Center(
+                child: const Center(
                   child: Text(
                     "Explore Courses",
                     style: buttonStyle,
                   ),
                 ),
               ),
+            ), */
+            //Features
+            SizedBox(
+              height: getProportionateScreenHeight(30),
+            ),
+            const Text(
+              "Our Features",
+              style: headingText,
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
+            Wrap(
+              children: [
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20)),
+                  height: getProportionateScreenHeight(400),
+                  width: getProportionateScreenWidth(150),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Column(
+                    children: [
+                      learnImage,
+                      Text(
+                        "Boost your carer by learning new skills from tutorials and workshops",
+                        style: featuresText,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20)),
+                  height: getProportionateScreenHeight(400),
+                  width: getProportionateScreenWidth(150),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Column(
+                    children: [
+                      counselImage,
+                      Text(
+                        "Book counselling session with our mentors for selecting the right skills for you",
+                        style: featuresText,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Wrap(
+              children: [
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20)),
+                  height: getProportionateScreenHeight(400),
+                  width: getProportionateScreenWidth(150),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Column(
+                    children: [
+                      cartImage,
+                      Text(
+                        "Shop the products made by our learners and support them financially",
+                        style: featuresText,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20)),
+                  height: getProportionateScreenHeight(400),
+                  width: getProportionateScreenWidth(150),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Column(
+                    children: [
+                      getHiredImage,
+                      Text(
+                        "Explore the openings in various departments and get hired",
+                        style: featuresText,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             // Reviews
             Wrap(
@@ -156,73 +248,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             // FAQ
-            Text(
-              "FAQ",
-              style: headingText,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: ExpansionTile(
-                title: Text(
-                  "What is the fees of the course?",
-                  style: quesText,
-                ),
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "Don't worry you need NOT pay anything. We just need your zeal and enthusiasm to learn and grow.",
-                      style: ansText,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: ExpansionTile(
-                title: Text(
-                  "What is the fees of the course?",
-                  style: quesText,
-                ),
-                children: [
-                  Text(
-                    "Don't worry you need NOT pay anything. We just need your zeal and enthusiasm to learn and grow.",
-                    style: ansText,
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: ExpansionTile(
-                title: Text(
-                  "What is the fees of the course?",
-                  style: quesText,
-                ),
-                children: [
-                  Text(
-                    "Don't worry you need NOT pay anything. We just need your zeal and enthusiasm to learn and grow.",
-                    style: ansText,
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: ExpansionTile(
-                title: Text(
-                  "What is the fees of the course?",
-                  style: quesText,
-                ),
-                children: [
-                  Text(
-                    "Don't worry you need NOT pay anything. We just need your zeal and enthusiasm to learn and grow.",
-                    style: ansText,
-                  )
-                ],
-              ),
-            ),
           ],
         ),
       ),
